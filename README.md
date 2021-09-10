@@ -13,13 +13,13 @@ The below component was designed to count down the days until our CTO's birthday
 
 **Do a critique:** The current implementation isn't perfect. How could it be improved?
 
-Pick an area of improvement to implement.
+#### Pick an area of improvement to implement.
 - I will do some additions and add some additional styles via Tailwind.css
 
-What would happen to the current code if the date were changed, the page layout was changed or the format was changed?
+#### What would happen to the current code if the date were changed, the page layout was changed or the format was changed?
 - Currently the birthday that is being passed is `2020-12-24T00:00:00` as a string to the Countdown component as `date`. this is causing the current countdown to be negative because it is passed that date. I changed it to `2021-12-24T00:00:00` to update the year.  it won't work if no date is passed down, it will give us NaN.  Currently, it's built so you will need to keep updating the passed down year. I would suggest a refactor so this isn't the case. I thought about doing it but because it works now, I hesitate to take it apart to rebuild as I anticipate that taking a few hours to make sure it works correctly. 
 
-Does the current implementation follow best practices for HTML, CSS, JS and React?
+#### Does the current implementation follow best practices for HTML, CSS, JS and React?
 HTML:
 - changed all " to '
 - removed a ,
@@ -35,13 +35,13 @@ React:
 
 **Spice it up:** Let's be honest, this countdown could be a whole lot more exciting.
 
-What could you do to create a greater sense of urgency?
+#### What could you do to create a greater sense of urgency?
 - as the birthday approaches, the color will change
 
-How would you make this countdown more aesthetically pleasing?
+#### How would you make this countdown more aesthetically pleasing?
 - added some styling and spacing, see it working to see
 
-Trust your design instincts, and explain how your design choices impact the user experience
+#### Trust your design instincts, and explain how your design choices impact the user experience
 - easier to read and access it's information
 
 ## Getting Started with Create React App
