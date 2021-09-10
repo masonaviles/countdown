@@ -23,12 +23,15 @@ The below component was designed to count down the days until our CTO's birthday
 HTML:
 - changed all " to '
 - removed a ,
+
 CSS:
 - removed what was there, there was some padding
 - added tailwind.css and implemented my styles that way 
+
 JS:
 - removed some unused things like miliseconds
 - changed some " to ' in tje jsx
+
 React:
 - this is still using Class componenets. I would suggest a refactor to function components
 - the component I added, `Cake`, uses function components
