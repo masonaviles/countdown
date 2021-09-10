@@ -1,4 +1,5 @@
 import React from 'react';
+import Cake from './Cake';
 
 class Countdown extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class Countdown extends React.Component {
       hours: 0,
       min: 0,
       sec: 0,
+      isBirthday: false,
     }
   }
 
@@ -33,9 +35,13 @@ class Countdown extends React.Component {
       hours: 0,
       min: 0,
       sec: 0,
-      millisec: 0,
     };
 
+    if (diff === 0) {
+      this.setState({
+        isBirthday:true
+      });
+    }
     // calculate time difference between now and expected date
     if (diff >= (365.25 * 86400)) { // 365.25 * 24 * 60 * 60
       timeLeft.years = Math.floor(diff / (365.25 * 86400));
@@ -55,6 +61,7 @@ class Countdown extends React.Component {
     }
     timeLeft.sec = diff;
 
+
     return timeLeft;
   }
 
@@ -63,38 +70,61 @@ class Countdown extends React.Component {
   }
 
   addLeadingZeros(value) {
+    if (value < 0) {
+      return '00';
+    }
     value = String(value);
-    while (value.length < 2) {
+    if (value.length < 2) {
       value = '0' + value;
     }
     return value;
   }
 
+  
+
   render() {
     const countDown = this.state;
+    const countdownBoxes = 'countdown-col flex flex-col p-2 bg-gray-50 border-2 rounded-md text-neutral-content shadow-xl';
+    const countdownFont = 'font-mono text-5xl countdown';
+    const countdownFontZeroDate = 'font-mono text-5xl countdown text-blue-500';
 
     return (
-      <div className="Countdown">
-        <span className="countdown-col">
-          <strong>{this.addLeadingZeros(countDown.days)}</strong>
-          <span>{countDown.days === 1 ? 'Day' : 'Days'}</span>
-        </span>
+      <>
+      <Cake 
+        isBirthday={this.state.isBirthday}
+      />
+      <div className='flex justify-center'>
+        <div className='Countdown grid grid-flow-col gap-5 text-center auto-cols-max'>
+          <div className={countdownBoxes}>
+            <strong className={countDown.days === 0 ? countdownFontZeroDate : countdownFont}>
+              {this.addLeadingZeros(countDown.days)}
+            </strong>
+            <span>{countDown.days === 1 ? 'Day' : 'Days'}</span>
+          </div>
 
-        <span className="countdown-col">
-          <strong>{this.addLeadingZeros(countDown.hours)}</strong>
-          <span>Hours</span>
-        </span>
+          <div className={countdownBoxes}>
+            <strong className={countDown.days === 0 ? countdownFontZeroDate : countdownFont}>
+              {this.addLeadingZeros(countDown.hours)}
+            </strong>
+            <span>{countDown.hours === 1 ? 'Hour' : 'Hours'}</span>
+          </div>
 
-        <span className="countdown-col">
-          <strong>{this.addLeadingZeros(countDown.min)}</strong>
-          <span>Min</span>
-        </span>
+          <div className={countdownBoxes}>
+            <strong className={countDown.days === 0 ? countdownFontZeroDate : countdownFont}>
+              {this.addLeadingZeros(countDown.min)}
+            </strong>
+            <span>{countDown.min === 1 ? 'Min' : 'Mins'}</span>
+          </div>
 
-        <span className="countdown-col">
-          <strong>{this.addLeadingZeros(countDown.sec)}</strong>
-          <span>Sec</span>
-        </span>
+          <div className={countdownBoxes}>
+            <strong className={countDown.days === 0 ? countdownFontZeroDate : countdownFont}>
+              {this.addLeadingZeros(countDown.sec)}
+            </strong>
+            <span>{countDown.sec === 1 ? 'Sec' : 'Secs'}</span>
+          </div>
+        </div>
       </div>
+      </>
     );
   }
 }
