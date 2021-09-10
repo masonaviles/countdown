@@ -1,5 +1,7 @@
 # Countdown
 
+Deployed to Netlify: [See It Here](https://quirky-perlman-c12b9e.netlify.app/)
+
 ## General Improvements by Mason:
 - Addition of Tailwind.css via CDN
   - I added this because I want to be able to quickly style components in a smart way but I also still want to have every control over how I am styling it. We could bring in a tool or a react library, but I believe if we can build it / style it ourselves, then I think it's better to go that route. I chose to use tailwind because they take care of browser tags, backwards compatability, etc but still gives me full control of how I am styling an element.  In styles being class based, I moved all classNames into variables to eliviate the need to have to change everything in line.
