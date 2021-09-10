@@ -11,6 +11,10 @@ Deployed to Netlify: [See It Here](https://quirky-perlman-c12b9e.netlify.app/)
 - Addition of a `Cake` component
 - Other tydying up, more details below.
 
+## Suggested Further Improvements with more time:
+- Change so you do not have to keep updating the birthday year. allow the component to take in the person's actual birthday with the year they were born.  Calculate remaining time left from current year by determining negative values. If the Birthday has passed, then set the Birthday countdown for next year.
+- Change the class components to functions and use hooks
+
 ## Improved countdown
 The below component was designed to count down the days until our CTO's birthday, but it still needs some work. How can you make the implementation better?
 
